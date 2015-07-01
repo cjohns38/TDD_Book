@@ -58,7 +58,7 @@ class NewVisitorTest(LiveServerTestCase):
 
 
         # The page updates again, and now shows both items on her list 
-        self.check_for_row_in_list_table('2: Use peacock featehrs to make a fly')
+        self.check_for_row_in_list_table('2: Use peacock feathers to make a fly')
         self.check_for_row_in_list_table('1: Buy peacock feathers')
         
         # Now a new user, Francis, comes along to the site
@@ -82,7 +82,7 @@ class NewVisitorTest(LiveServerTestCase):
         inputbox.send_keys(Keys.ENTER)
         
         # Francis gets his own unique URL 
-        francis_list_url = self.browser.current.url
+        francis_list_url = self.browser.current_url
         self.assertRegex(francis_list_url, '/lists/.+')
         self.assertNotEqual(francis_list_url, edith_list_url)
         
@@ -91,6 +91,7 @@ class NewVisitorTest(LiveServerTestCase):
         self.assertNotIn('Buy peacock feathers', page_text)
         self.assertIn('Buy milk', page_text)
         
+        # Satisfied, they both go back to sleep 
         
         
         self.fail("Finish the test")

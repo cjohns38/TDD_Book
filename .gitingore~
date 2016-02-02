@@ -68,4 +68,3 @@ target/
 
 
 *.py~
-*.sqlite3
